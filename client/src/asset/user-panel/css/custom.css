@@ -1,0 +1,202 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+.allTitle {
+    color: #0073E6;
+    margin: 4rem;
+    font-family: 'montserreat', sans-serif;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a :hover {
+    text-decoration: none !important;
+}
+
+/* Navigation */
+.navTitle {
+    color: #ffffff !important;
+    font-family: 'montserreat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.navTitleScroll {
+    color: #0073E6 !important;
+    font-family: 'montserreat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.navBackground {
+    background-color: rgba(0, 0, 0, 0) !important;
+    -webkit-transition: background-color 400ms linear;
+    -o-transition: background-color 400ms linear;
+    -moz-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+}
+
+.navBackgroundScroll {
+    background-color: #ffffff !important;
+    -webkit-transition: background-color 400ms linear;
+    -o-transition: background-color 400ms linear;
+    -moz-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+    box-shadow: 0 0 6px 0 rgba(0, 115, 230, 0.3);
+}
+
+.navItem {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.navItemScroll {
+    color: #000000 !important;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+/* TopBanner*/
+.topBanner {
+    background-image: url("../images/topBanner/banner.jpg");
+    min-height: 655px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.topBannerOverlay {
+    position: absolute;
+    min-height: 655px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.topContent {
+    margin-top: 16rem;
+}
+
+.topTitle {
+    font-family: 'Montserreat', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.topSubTitle {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Service*/
+.serviceCard {
+    margin: 5px;
+    height: 22rem;
+    padding: 60px 30px;
+    box-shadow: 0 0 4px 0 rgba(0, 115, 130, 0.3);
+}
+
+/* Summary */
+.sumBanner {
+    background-image: url("../images/topBanner/banner.jpg");
+    min-height: 350px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sumBannerOverlay {
+    position: absolute;
+    min-height: 350px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.coutSec {
+    color: #ffffff;
+    margin-top: 100px;
+}
+
+/* Courses */
+.courseImg {
+    width: 100%;
+}
+
+/* Video */
+.video {
+    box-shadow: 0 0 4px 0 rgba(0, 115, 130, 0.3);
+}
+
+.videoFont {
+    color: #0073E6;
+    cursor: pointer;
+    font-size: 48px;
+}
+
+.reviewImg {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #0073E6;
+    border-radius: 50%;
+    margin: auto;
+}
+
+/* Footer */
+.footer {
+    margin-top: 5rem;
+    box-shadow: 0 0 4px 0 rgba(0, 115, 130, 0.1);
+    line-height: 8px;
+    font-size: 15px;
+    text-align: justify;
+
+}
+
+.displayInline a {
+    display: flex;
+    line-height: 20px;
+    color: #000000;
+    font-size: 14px;
+}
+
+.footerCreadit {
+    text-align: center;
+    background: #0073E6;
+    height: 30px;
+    margin-top: 25px;
+    color: #ffffff
+}
+
+
+/* TopFixedBanner*/
+.topFxedBanner {
+    background-image: url("../images/topBanner/banner.jpg");
+    min-height: 280px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.topFxedBannerOverlay {
+    position: absolute;
+    min-height: 280px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.topFixedContent {
+    margin-top: 8rem;
+    color: #ffffff;
+}
+
+.errorImg {
+    width: 200px;
+    height: 200px;
+}
