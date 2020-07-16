@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
-import whiteLogo from '../asset/user-panel/images/logo/whitelogo.svg'
-import blueLogo from '../asset/user-panel/images/logo/bluelogo.svg'
-import '../asset/user-panel/css/custom.css'
-import '../asset/user-panel/css/responsive.css'
+import whiteLogo from '../../asset/user-panel/images/logo/whitelogo.svg'
+import blueLogo from '../../asset/user-panel/images/logo/bluelogo.svg'
+import '../../asset/user-panel/css/custom.css'
+import '../../asset/user-panel/css/responsive.css'
 
 class Navigation extends React.Component {
     state = {

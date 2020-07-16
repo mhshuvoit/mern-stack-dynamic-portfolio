@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
-import Navigation from '../components/Navigation'
+import Navigation from '../../components/admin-panel/Navigation'
 import { Button } from 'react-bootstrap'
 import BootstrapTable from 'react-bootstrap-table-next'
 import paginationFactory from 'react-bootstrap-table2-paginator'
 import Axios from 'axios'
-import Spinner from '../components/Spinner'
-import WentWrong from '../components/Wentwrong'
+import Spinner from '../../components/admin-panel/Spinner'
+import WentWrong from '../../components/admin-panel/Wentwrong'
+import ApiEndPoint from '../../components/user-panel/ApiEndPoint'
 
 class Contacts extends React.Component {
     state = {
@@ -17,7 +18,7 @@ class Contacts extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get('http://localhost:5000/contact/get')
+        Axios.get(ApiEndPoint.baseurl + '/contact/get')
             .then(result => {
                 if (result === null) {
                     this.setState({
@@ -39,11 +40,16 @@ class Contacts extends React.Component {
     }
 
     contactDelete = () => {
-        Axios.delete('http://localhost:5000/contact/' + this.state.dataId)
+        Axios.delete(ApiEndPoint.baseurl + 'contact/' + this.state.dataId)
             .then(result => {
                 this.setState({
                     contactdata: this.state.contactdata.filter(el => el._id !== this.state.dataId),
                     btnTxt: 'Delete Success'
+                })
+            })
+            .catch(err => {
+                this.setState({
+                    btnTxt: 'Delete Unsuccess'
                 })
             })
     }

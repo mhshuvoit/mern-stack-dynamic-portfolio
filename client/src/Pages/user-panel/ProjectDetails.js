@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import Navbar from '../components/Navigation'
-import TopFixedBan from '../components/TopFixedBan'
-import ProjectDetailsCompo from '../components/ProjectDetails'
-import Footer from '../components/Footer'
+import Navbar from '../../components/user-panel/Navigation'
+import TopFixedBan from '../../components/user-panel/TopFixedBan'
+import ProjectDetailsCompo from '../../components/user-panel/ProjectDetails'
+import Footer from '../../components/user-panel/Footer'
 
 class ProjectDetails extends React.Component {
     constructor({ match }) {

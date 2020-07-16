@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react'
-import Navbar from '../components/Navigation'
-import TopFixedBan from '../components/TopFixedBan'
-import TermsCompo from '../components/Terms'
-import Footer from '../components/Footer'
+import Navbar from '../../components/user-panel/Navigation'
+import TopFixedBan from '../../components/user-panel/TopFixedBan'
+import TermsCompo from '../../components/user-panel/Terms'
+import Footer from '../../components/user-panel/Footer'
 
 const Terms = () => (
     <Fragment>
-        <Navbar title='Term'/>
+        <Navbar title='Term' />
         <TopFixedBan title='Terms and Condition' />
         <TermsCompo />
-        <Footer/>
+        <Footer />
     </Fragment>
 )
 export default Terms

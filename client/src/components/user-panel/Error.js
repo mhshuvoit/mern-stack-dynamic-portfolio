@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import ErrorImg from '../asset/user-panel/images/error.svg'
+import ErrorImg from '../../asset/user-panel/images/error.svg'
 import { Container } from 'react-bootstrap'
 
 const Error = () => (

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import Navbar from '../components/Navigation'
-import TopFixedBan from '../components/TopFixedBan'
-import AllCourses from '../components/AllCourses'
-import Footer from '../components/Footer'
+import Navbar from '../../components/user-panel/Navigation'
+import TopFixedBan from '../../components/user-panel/TopFixedBan'
+import AllCourses from '../../components/user-panel/AllCourses'
+import Footer from '../../components/user-panel/Footer'
 
 const Courses = () => (
     <Fragment>

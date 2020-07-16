@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import Navbar from '../components/Navigation'
-import TopFixedBan from '../components/TopFixedBan'
-import AllPorjects from '../components/AllPorjects'
-import Footer from '../components/Footer'
+import Navbar from '../../components/user-panel/Navigation'
+import TopFixedBan from '../../components/user-panel/TopFixedBan'
+import AllPorjects from '../../components/user-panel/AllPorjects'
+import Footer from '../../components/user-panel/Footer'
 
 const Portfolio = () => (
     <Fragment>

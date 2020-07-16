@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from 'react-slick'
-import Client from '../asset/user-panel/images/client/1.jpg'
+import Client from '../../asset/user-panel/images/client/1.jpg'
 
 class ClientReview extends React.Component {
 

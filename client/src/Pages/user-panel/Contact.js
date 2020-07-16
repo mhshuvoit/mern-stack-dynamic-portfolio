@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import Navbar from '../components/Navigation'
-import TopFixedBan from '../components/TopFixedBan'
-import ContactCompo from '../components/Contact'
-import Footer from '../components/Footer'
+import Navbar from '../../components/user-panel/Navigation'
+import TopFixedBan from '../../components/user-panel/TopFixedBan'
+import ContactCompo from '../../components/user-panel/Contact'
+import Footer from '../../components/user-panel/Footer'
 
 const Contact = () => (
     <Fragment>

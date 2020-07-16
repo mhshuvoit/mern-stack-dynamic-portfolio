@@ -1,21 +1,30 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Home from '../Pages/Home'
-import About from '../Pages/About'
-import Courses from '../Pages/Courses'
-import Services from '../Pages/Services'
-import Portfolio from '../Pages/Portfolio'
-import Contact from '../Pages/Contact'
-import Refund from '../Pages/Refund'
-import Terms from '../Pages/Terms'
-import Privacy from '../Pages/Privacy'
-import ProjectDetails from '../Pages/ProjectDetails'
-import CourseDetails from '../Pages/CourseDetails'
+// User-Panel
+import Home from '../Pages/user-panel/Home'
+import About from '../Pages/user-panel/About'
+import Courses from '../Pages/user-panel/Courses'
+import Services from '../Pages/user-panel/Services'
+import Portfolio from '../Pages/user-panel/Portfolio'
+import Contact from '../Pages/user-panel/Contact'
+import Refund from '../Pages/user-panel/Refund'
+import Terms from '../Pages/user-panel/Terms'
+import Privacy from '../Pages/user-panel/Privacy'
+import ProjectDetails from '../Pages/user-panel/ProjectDetails'
+import CourseDetails from '../Pages/user-panel/CourseDetails'
+
+//Admin-Panel
+import AdminHome from '../Pages/admin-panel/Home'
+import AdminServices from '../Pages/admin-panel/Services'
+import AdminCourses from '../Pages/admin-panel/Courses'
+import AdminProjects from '../Pages/admin-panel/Projects'
+import AdminContacts from '../Pages/admin-panel/Contacts'
 
 const Router = () => (
     <Fragment>
         <BrowserRouter>
             <Switch>
+                {/* User-Panel */}
                 <Route exact path='/' component={Home} />
                 <Route exact path='/services' component={Services} />
                 <Route exact path='/courses' component={Courses} />
@@ -27,6 +36,13 @@ const Router = () => (
                 <Route exact path='/privacy' component={Privacy} />
                 <Route exact path='/projectdetails/:id/:title' component={ProjectDetails} />
                 <Route exact path='/coursedetails/:id/:title' component={CourseDetails} />
+
+                {/* Admin-Panel */}
+                <Route exact path='/admin' component={AdminHome} />
+                <Route exact path='/admin/services' component={AdminServices} />
+                <Route exact path='/admin/courses' component={AdminCourses} />
+                <Route exact path='/admin/projects' component={AdminProjects} />
+                <Route exact path='/admin/contacts' component={AdminContacts} />
             </Switch>
         </BrowserRouter>
     </Fragment>

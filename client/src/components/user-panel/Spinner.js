@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import SpinnerSvg from '../asset/user-panel/images/Spinner.svg'
+import SpinnerSvg from '../../asset/user-panel/images/Spinner.svg'
 import { Container } from 'react-bootstrap'
 
 const Spinner = () => (

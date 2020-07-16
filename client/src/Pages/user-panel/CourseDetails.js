@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import Navbar from '../components/Navigation'
-import CourseDetailsCompo from '../components/CourseDetails'
-import Footer from '../components/Footer'
+import Navbar from '../../components/user-panel/Navigation'
+import CourseDetailsCompo from '../../components/user-panel/CourseDetails'
+import Footer from '../../components/user-panel/Footer'
 
 class CourseDetails extends React.Component {
     constructor({ match }) {

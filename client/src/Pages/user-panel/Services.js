@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react'
-import Navbar from '../components/Navigation'
-import TopFixedBan from '../components/TopFixedBan'
-import ServicesCompo from '../components/Services'
-import Contact from '../components/Contact'
-import Footer from '../components/Footer'
+import Navbar from '../../components/user-panel/Navigation'
+import TopFixedBan from '../../components/user-panel/TopFixedBan'
+import ServicesCompo from '../../components/user-panel/Services'
+import Contact from '../../components/user-panel/Contact'
+import Footer from '../../components/user-panel/Footer'
 
 const Services = () => (
     <Fragment>
         <Navbar title='Service' />
         <TopFixedBan title='All Service' />
         <ServicesCompo />
-        <Contact/>
+        <Contact />
         <Footer />
     </Fragment>
 )
