@@ -27,6 +27,7 @@ a:hover {
     overflow-x: hidden;
     transition: 0.4s;
     padding-top: 60px;
+    text-align: justify
 }
 
 .main-overlay-open {
