@@ -28,7 +28,7 @@ class Contacts extends React.Component {
                 }
                 this.setState({
                     contactdata: result.data.response,
-                    spinner: true
+                    spinner: false
                 })
             })
             .catch(error => {
@@ -40,7 +40,7 @@ class Contacts extends React.Component {
     }
 
     contactDelete = () => {
-        Axios.delete(ApiEndPoint.baseurl + 'contact/' + this.state.dataId)
+        Axios.delete(ApiEndPoint.baseurl + '/contact/' + this.state.dataId)
             .then(result => {
                 this.setState({
                     contactdata: this.state.contactdata.filter(el => el._id !== this.state.dataId),
@@ -57,7 +57,7 @@ class Contacts extends React.Component {
     render() {
         if (this.state.spinner === true) {
             return (
-                <Navigation>
+                <Navigation title="loding...">
                     <Spinner />
                 </Navigation>
             )
@@ -70,16 +70,19 @@ class Contacts extends React.Component {
                 { dataField: 'msg', text: 'Msg' }
             ]
             const selectRow = {
-                mode: 'checkBox',
+                mode: 'radio',
                 onSelect: (row, isSelect, rowIndex) => {
                     this.setState({ dataId: row['_id'] })
                 }
             }
             return (
-                <Navigation>
+                <Navigation title="Contacts">
                     <Fragment>
                         <Button
-                            onClick={this.contactDelete} className='m-3'>{this.state.btnTxt}</Button>
+                            onClick={this.contactDelete}
+                            className='m-3 btn-danger'>
+                            {this.state.btnTxt}
+                        </Button>
                         <BootstrapTable
                             keyField='_id'
                             data={this.state.contactdata}

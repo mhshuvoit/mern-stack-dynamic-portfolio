@@ -14,7 +14,8 @@ import ProjectDetails from '../Pages/user-panel/ProjectDetails'
 import CourseDetails from '../Pages/user-panel/CourseDetails'
 
 //Admin-Panel
-import AdminHome from '../Pages/admin-panel/Home'
+import Dashboard from '../Pages/admin-panel/Dashboard'
+import Etc from '../Pages/admin-panel/Home'
 import AdminServices from '../Pages/admin-panel/Services'
 import AdminCourses from '../Pages/admin-panel/Courses'
 import AdminProjects from '../Pages/admin-panel/Projects'
@@ -38,7 +39,8 @@ const Router = () => (
                 <Route exact path='/coursedetails/:id/:title' component={CourseDetails} />
 
                 {/* Admin-Panel */}
-                <Route exact path='/admin' component={AdminHome} />
+                <Route exact path='/admin' component={Dashboard} />
+                <Route exact path='/admin/etc' component={Etc} />
                 <Route exact path='/admin/services' component={AdminServices} />
                 <Route exact path='/admin/courses' component={AdminCourses} />
                 <Route exact path='/admin/projects' component={AdminProjects} />

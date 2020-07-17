@@ -50,7 +50,7 @@ class ProjectDetails extends React.Component {
             return <Spinner />
         } else if (this.state.error === true && this.state.spinner === false) {
             return <WentWrong />
-        } else if (this.state.spinner === false && this.state.error === false){
+        } else if (this.state.spinner === false && this.state.error === false) {
             return (
                 <Fragment>
                     <Container fluid={true} className="topFxedBanner p-0" >
@@ -74,9 +74,7 @@ class ProjectDetails extends React.Component {
                             <Col lg={6} sm={12}>
                                 <h4>{this.state.title}</h4>
                                 <p>{this.state.shortdes}</p>
-                                <ul>
-                                    {ReactHtmlParser(this.state.feature)}
-                                </ul>
+                                {ReactHtmlParser(this.state.feature)}
                                 <Button className='primary'>Details</Button>
                             </Col>
                             <Col lg={6} sm={12}>

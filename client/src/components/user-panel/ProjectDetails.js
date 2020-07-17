@@ -61,9 +61,7 @@ class ProjectDetails extends React.Component {
                             <Col lg={6} sm={12}>
                                 <h4>{this.state.title}</h4>
                                 <p>{this.state.shortdes}</p>
-                                <ul>
-                                    {ReactHtmlParser(this.state.feature)}
-                                </ul>
+                                {ReactHtmlParser(this.state.feature)}
                                 <Button className='primary'>Details</Button>
                             </Col>
                         </Row>
