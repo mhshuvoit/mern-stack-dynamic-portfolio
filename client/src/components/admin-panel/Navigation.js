@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Navbar, NavLink, Row, Col } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faHome, faIdCard, faTaxi, faProjectDiagram, faBook } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faHome, faIdCard, faTaxi, faProjectDiagram, faBook, faSignOutAlt, faHeading } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"
 import '../../asset/admin-panel/css/navigation.css'
 
@@ -41,8 +41,8 @@ class Navigation extends Component {
                     <NavLink><Link className="my-0 p-2 text-white" to="/admin/projects"> <FontAwesomeIcon icon={faProjectDiagram} /> Projects</Link></NavLink>
                     <NavLink><Link className="my-0 p-2 text-white" to="/admin/services"> <FontAwesomeIcon icon={faTaxi} /> Services</Link></NavLink>
                     <NavLink><Link className="my-0 p-2 text-white" to="/admin/contacts"> <FontAwesomeIcon icon={faIdCard} /> Contacts</Link></NavLink>
-                    <NavLink> <Link className="my-0 p-2 text-white" to="/admin/etc"> <FontAwesomeIcon icon={faHome} /> Etc</Link></NavLink>
-                    <NavLink><Link className="my-0 p-2 text-white" to="/logout"> <FontAwesomeIcon icon={faIdCard} /> Logout</Link></NavLink>
+                    <NavLink> <Link className="my-0 p-2 text-white" to="/admin/etc"> <FontAwesomeIcon icon={faHeading} /> Etc</Link></NavLink>
+                    <NavLink><Link className="my-0 p-2 text-white" to="/logout"> <FontAwesomeIcon icon={faSignOutAlt} /> Logout</Link></NavLink>
                 </div>
                 <div onClick={this.showHideSideNav} className={this.state.mainDivOverlay}>
                 </div>
