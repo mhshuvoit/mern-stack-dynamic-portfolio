@@ -116,7 +116,7 @@ class Services extends React.Component {
             const columns = [
                 { dataField: 'img', text: 'Image', formatter: this.imgCellFormatte },
                 { dataField: 'title', text: 'Title' },
-                { dataField: 'des', text: 'des' }
+                { dataField: 'des', text: 'Description' }
             ]
             const selectRow = {
                 mode: 'radio',
