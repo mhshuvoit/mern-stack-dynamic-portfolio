@@ -19,7 +19,7 @@ class Courses extends React.Component {
         error: false,
         show: false,
         title: '',
-        img: '',
+        image: null,
         shortdes: '',
         feature: ''
     }
@@ -79,20 +79,28 @@ class Courses extends React.Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
+    handleChangeImg = (event) => {
+        this.setState({ image: event.target.files[0] })
+    }
+
     handleFeaChange = (content, delta, source, editor) => {
         this.setState({ feature: editor.getHTML() })
     }
 
     onSubmit = (event) => {
         event.preventDefault()
-        let jsonservice = {
-            title: this.state.title,
-            img: this.state.img,
-            shortdes: this.state.shortdes,
-            feature: this.state.feature
-        }
-        Axios.post(ApiEndPoint.baseurl + '/course/add', jsonservice)
+        const fd = new FormData()
+        fd.append('title', this.state.title)
+        fd.append('shortdes', this.state.shortdes)
+        fd.append('feature', this.state.feature)
+        fd.append('image', this.state.image)
+        Axios.post(ApiEndPoint.baseurl + '/course/add', fd, {
+            onUploadProgress: ProgressEvent => {
+                console.log('Upload Progress: ' + Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + '%')
+            }
+        })
             .then(result => {
+                this.handleClose()
                 this.componentDidMount()
             })
             .catch(err => {
@@ -101,11 +109,10 @@ class Courses extends React.Component {
         event.target.reset()
         this.setState({
             title: '',
-            img: '',
+            image: '',
             shortdes: '',
             feature: ''
         })
-        this.handleClose()
     }
 
     render() {
@@ -119,7 +126,7 @@ class Courses extends React.Component {
             return <WentWrong />
         } else {
             const columns = [
-                { dataField: 'img', text: 'Image', formatter: this.imgCellFormatte },
+                { dataField: 'image', text: 'Image', formatter: this.imgCellFormatte },
                 { dataField: 'title', text: 'Title' },
                 { dataField: 'shortdes', text: 'Description' },
                 { dataField: 'feature', text: 'Feature' }
@@ -130,6 +137,16 @@ class Courses extends React.Component {
                     this.setState({ dataId: row['_id'] })
                 }
             }
+            // console.log(<BootstrapTable
+            //     keyField='_id'
+            //     data={this.state.contactdata.map(data=> (
+            //         <div>
+            //             <img src={data.image} />
+            //         </div>
+            //     ))}
+            //     columns={columns}
+            //     pagination={paginationFactory()}
+            //     selectRow={selectRow} />)
             return (
                 <Navigation title="Courses">
                     <Fragment>
@@ -149,7 +166,6 @@ class Courses extends React.Component {
                             columns={columns}
                             pagination={paginationFactory()}
                             selectRow={selectRow} />
-
                         <Modal scrollable={true} size="lg" show={this.state.show} onHide={this.handleClose} className='text-justify'>
                             <Modal.Header closeButton>
                                 <Modal.Title>Add Course</Modal.Title>
@@ -162,14 +178,6 @@ class Courses extends React.Component {
                                         name="title"
                                         onChange={this.handleChange}
                                         value={this.state.title} />
-                                </Form.Group>
-                                <Form.Group>
-                                    <Form.Label>Image</Form.Label>
-                                    <Form.Control type="text"
-                                        placeholder="Enter Img"
-                                        name="img"
-                                        onChange={this.handleChange}
-                                        value={this.state.img} />
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Description</Form.Label>
@@ -188,13 +196,20 @@ class Courses extends React.Component {
                                         value={this.state.feature}
                                     />
                                 </Form.Group>
-
+                                <Form.Group>
+                                    <Form.Label>Image</Form.Label>
+                                    <Form.Control
+                                        style={{ display: 'none' }}
+                                        type="file"
+                                        onChange={this.handleChangeImg}
+                                        ref={fileInput => this.fileInput = fileInput} />
+                                    <p className="pStyle" onClick={() => this.fileInput.click()}>Pick File</p>
+                                </Form.Group>
                                 <Button variant="primary" type="submit">
                                     Submit
                                 </Button>
                             </Form>
                         </Modal>
-
                     </Fragment>
                 </Navigation>
             )

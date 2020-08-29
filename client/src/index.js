@@ -3,6 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import setAuthToken from './utils/setAuthToken'
+import jwtDecode from 'jwt-decode'
+
+const token = localStorage.getItem('auth_token')
+if (token) {
+    jwtDecode(token)
+    setAuthToken(token)
+}
 
 ReactDOM.render(
   <React.StrictMode>

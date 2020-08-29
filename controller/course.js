@@ -18,7 +18,7 @@ const getAllService = (req, res) => {
 
 const postService = (req, res) => {
     let service = new Courses({
-        img: req.body.img,
+        image: req.file.path,
         title: req.body.title,
         shortdes: req.body.shortdes,
         feature: req.body.feature
@@ -72,7 +72,7 @@ const deleteService = (req, res) => {
 
 const updateService = (req, res) => {
     let updateservice = {
-        img: req.body.img,
+        image: req.file.path,
         title: req.body.title,
         shortdes: req.body.shortdes,
         feature: req.body.feature

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 // User-Panel
 import Home from '../Pages/user-panel/Home'
 import About from '../Pages/user-panel/About'
@@ -15,6 +16,8 @@ import CourseDetails from '../Pages/user-panel/CourseDetails'
 
 //Admin-Panel
 import Dashboard from '../Pages/admin-panel/Dashboard'
+import Register from '../Pages/admin-panel/Register'
+import Login from '../Pages/admin-panel/Login'
 import Etc from '../Pages/admin-panel/Home'
 import AdminServices from '../Pages/admin-panel/Services'
 import AdminCourses from '../Pages/admin-panel/Courses'
@@ -39,7 +42,9 @@ const Router = () => (
                 <Route exact path='/coursedetails/:id/:title' component={CourseDetails} />
 
                 {/* Admin-Panel */}
-                <Route exact path='/admin' component={Dashboard} />
+                <Route exact path='/admin' component={Register} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/dashboard' component={Dashboard} />
                 <Route exact path='/admin/etc' component={Etc} />
                 <Route exact path='/admin/services' component={AdminServices} />
                 <Route exact path='/admin/courses' component={AdminCourses} />

@@ -1,5 +1,5 @@
 class ApiUrl {
-    static baseurl = 'http://localhost:5000'
+    static baseurl = 'http://localhost:8000'
 }
 
 export default ApiUrl

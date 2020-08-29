@@ -1,14 +1,16 @@
 const express = require('express')
+const path = require('path')
 const morgan = require('morgan')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const config = require("./config/key")
 
 const app = express()
 app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://mhshuvoit:mhshuvoit@cluster1.xbs5i.mongodb.net/msdp?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true }
+mongoose.connect(config.mongoURI, { useNewUrlParser: true, useCreateIndex: true }
 )
 const db = mongoose.connection
 db.on('Err', (err) => {
@@ -18,7 +20,7 @@ db.once("open", () => {
     console.log("Database connect Estabished")
 })
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`)
 })
@@ -32,6 +34,9 @@ const projectRouter = require('./router/project')
 const courseRouter = require('./router/course')
 const infoRouter = require('./router/info')
 const etcsRouter = require('./router/etcs')
+const registerRouter = require('./router/userRoute')
+
+app.use('/uploads/images', express.static(path.join('uploads', 'images')))
 
 app.use('/service', serviceRouter)
 app.use('/chart', chartRouter)
@@ -40,3 +45,4 @@ app.use('/project', projectRouter)
 app.use('/course', courseRouter)
 app.use('/info', infoRouter)
 app.use('/etcs', etcsRouter)
+app.use('/user', registerRouter)

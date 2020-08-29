@@ -1,0 +1,128 @@
+import React from "react";
+import { Link } from "react-router-dom"
+import Axios from 'axios'
+import ApiEndPoint from '../../components/user-panel/ApiEndPoint'
+
+class RegisterForm extends React.Component {
+    state = {
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        error: {}
+    }
+
+    changeHandler = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    };
+
+    submitHandler = event => {
+        event.preventDefault()
+        let regiJson = {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            confirmPassword: this.state.confirmPassword
+        }
+        Axios.post(ApiEndPoint.baseurl + '/user/register', regiJson)
+            .then(response => {
+                console.log(response.data)
+                window.location = "/login"
+            })
+            .catch(error => {
+                this.setState({
+                    error: error.response.data
+                })
+            })
+    }
+
+    render() {
+        let { name, email, password, confirmPassword, error } = this.state;
+        return (
+            <div className="row">
+                <div className="col-md-6 offset-md-3 text-justify">
+                    <h1 className="text-center display-4">Register Here</h1>
+                    <form onSubmit={this.submitHandler}>
+                        <div className="form-group">
+                            <label htmlFor="name"> Name: </label>
+                            <input
+                                type="text"
+                                className={
+                                    error.name ? "form-control is-invalid" : "form-control"
+                                }
+                                placeholder="Enter Your Name"
+                                name="name"
+                                id="name"
+                                value={name}
+                                onChange={this.changeHandler}
+                            />
+                            {error.name && (
+                                <div className="invalid-feedback">{error.name}</div>
+                            )}
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email"> Email: </label>
+                            <input
+                                type="email"
+                                className={
+                                    error.email ? "form-control is-invalid" : "form-control"
+                                }
+                                placeholder="Enter Your Email"
+                                name="email"
+                                id="email"
+                                value={email}
+                                onChange={this.changeHandler}
+                            />
+                            {error.email && (
+                                <div className="invalid-feedback">{error.email}</div>
+                            )}
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password"> Password: </label>
+                            <input
+                                type="password"
+                                className={
+                                    error.password ? "form-control is-invalid" : "form-control"
+                                }
+                                placeholder="Enter Your Password"
+                                name="password"
+                                id="password"
+                                value={password}
+                                onChange={this.changeHandler}
+                            />
+                            {error.password && (
+                                <div className="invalid-feedback">{error.password}</div>
+                            )}
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="confirmPassword"> Confirm Password: </label>
+                            <input
+                                type="password"
+                                className={
+                                    error.confirmPassword
+                                        ? "form-control is-invalid"
+                                        : "form-control"
+                                }
+                                placeholder="Confirm Your Password"
+                                name="confirmPassword"
+                                id="confirmPassword"
+                                value={confirmPassword}
+                                onChange={this.changeHandler}
+                            />
+                            {error.confirmPassword && (
+                                <div className="invalid-feedback">{error.confirmPassword}</div>
+                            )}
+                        </div>
+                        <Link to="/login">Already Have Account? Login Here</Link>
+                        <button className="btn btn-primary my-3 d-block">Register</button>
+                    </form>
+                </div>
+            </div>
+        );
+    }
+}
+
+
+export default RegisterForm;
