@@ -18,6 +18,7 @@ Technology:
 • Nodejs
 • Expressjs
 • Mongodb
+• Heroku
 ```
 
 ## Get started
