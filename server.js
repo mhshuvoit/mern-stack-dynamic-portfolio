@@ -10,7 +10,7 @@ app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect(config.mongoURI, { useNewUrlParser: true, useCreateIndex: true }
+mongoose.connect('mongodb+srv://mhshuvoit:mhshuvoit@cluster1.xbs5i.mongodb.net/msdp?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true }
 )
 const db = mongoose.connection
 db.on('Err', (err) => {
