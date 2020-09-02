@@ -1,6 +1,6 @@
 # Mern-Stack-Dynamic-Portfolio
 
-This is a project template for Mern-Stack-Dynamic-Portfolio. It lives at https://mern-stack-dynamic-portfolio-mhs.herokuapp.com
+This is a project template for Mern-Stack-Dynamic-Portfolio. It lives at https://mern-dynamic-portfolio-mhs.herokuapp.com
 
 ```bash
 Feature:
