@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import ApiUrl from './ApiEndPoint'
 import axios from 'axios'
 import Spinner from './Spinner'
 import WentWrong from './Error'
@@ -13,7 +12,7 @@ class Services extends Component {
     }
 
     componentDidMount() {
-        axios.get(ApiUrl.baseurl + '/service/get')
+        axios.get('/service/get')
             .then(result => {
                 if (result === null) {
                     this.setState({

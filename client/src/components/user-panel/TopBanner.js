@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { Container, Row, Col, Button } from "react-bootstrap"
-import ApiUrl from './ApiEndPoint'
 import axios from 'axios'
 import Spinner from './Spinner'
 import WentWrong from './Error'
@@ -15,7 +14,7 @@ class TopBanner extends Component {
     }
 
     componentDidMount() {
-        axios.get(ApiUrl.baseurl + '/etcs/get')
+        axios.get('/etcs/get')
             .then(result => {
                 if (result === null) {
                     this.setState({

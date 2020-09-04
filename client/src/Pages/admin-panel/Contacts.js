@@ -6,7 +6,6 @@ import paginationFactory from 'react-bootstrap-table2-paginator'
 import Axios from 'axios'
 import Spinner from '../../components/admin-panel/Spinner'
 import WentWrong from '../../components/admin-panel/Wentwrong'
-import ApiEndPoint from '../../components/user-panel/ApiEndPoint'
 
 class Contacts extends React.Component {
     state = {
@@ -18,7 +17,7 @@ class Contacts extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get(ApiEndPoint.baseurl + '/contact/get')
+        Axios.get('/contact/get')
             .then(result => {
                 if (result === null) {
                     this.setState({
@@ -40,7 +39,7 @@ class Contacts extends React.Component {
     }
 
     contactDelete = () => {
-        Axios.delete(ApiEndPoint.baseurl + '/contact/' + this.state.dataId)
+        Axios.delete('/contact/' + this.state.dataId)
             .then(result => {
                 this.setState({
                     contactdata: this.state.contactdata.filter(el => el._id !== this.state.dataId),

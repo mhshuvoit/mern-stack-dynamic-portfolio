@@ -3,7 +3,6 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
-import ApiUrl from './ApiEndPoint'
 
 class Contact extends React.Component {
     state = {
@@ -15,7 +14,7 @@ class Contact extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(ApiUrl.baseurl + '/etcs/get')
+        axios.get('/etcs/get')
             .then(result => {
                 this.setState({
                     emails: result.data.response[0]['email'],
@@ -40,7 +39,7 @@ class Contact extends React.Component {
             email: this.state.email,
             msg: this.state.msg
         }
-        axios.post(ApiUrl.baseurl + '/contact/add', contactjson)
+        axios.post('/contact/add', contactjson)
             .then(response => {
                 console.log(response.data)
             })

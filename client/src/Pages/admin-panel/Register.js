@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import Axios from 'axios'
-import ApiEndPoint from '../../components/user-panel/ApiEndPoint'
 
 class RegisterForm extends React.Component {
     state = {
@@ -26,7 +25,7 @@ class RegisterForm extends React.Component {
             password: this.state.password,
             confirmPassword: this.state.confirmPassword
         }
-        Axios.post(ApiEndPoint.baseurl + '/user/register', regiJson)
+        Axios.post('/user/register', regiJson)
             .then(response => {
                 console.log(response.data)
                 window.location = "/login"

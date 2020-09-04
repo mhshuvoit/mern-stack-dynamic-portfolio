@@ -7,7 +7,6 @@ import Axios from 'axios'
 import ReactQuill from 'react-quill'
 import Spinner from '../../components/admin-panel/Spinner'
 import WentWrong from '../../components/admin-panel/Wentwrong'
-import ApiEndPoint from '../../components/user-panel/ApiEndPoint'
 import 'react-quill/dist/quill.snow.css'
 
 class Projects extends React.Component {
@@ -25,7 +24,7 @@ class Projects extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get(ApiEndPoint.baseurl + '/project/get')
+        Axios.get('/project/get')
             .then(result => {
                 if (result === null) {
                     this.setState({
@@ -47,7 +46,7 @@ class Projects extends React.Component {
     }
 
     contactDelete = () => {
-        Axios.delete(ApiEndPoint.baseurl + '/project/' + this.state.dataId)
+        Axios.delete('/project/' + this.state.dataId)
             .then(result => {
                 this.setState({
                     contactdata: this.state.contactdata.filter(el => el._id !== this.state.dataId),
@@ -114,7 +113,7 @@ class Projects extends React.Component {
             shortdes: this.state.shortdes,
             feature: this.state.feature
         }
-        Axios.post(ApiEndPoint.baseurl + '/project/add', jsonservice)
+        Axios.post('/project/add', jsonservice)
             .then(result => {
                 this.componentDidMount()
             })

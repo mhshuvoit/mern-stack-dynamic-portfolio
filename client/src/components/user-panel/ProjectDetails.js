@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
-import ApiUrl from './ApiEndPoint'
 import Axios from 'axios'
 import ReactHtmlParser from 'react-html-parser'
 import Spinner from './Spinner'
@@ -21,7 +20,7 @@ class ProjectDetails extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get(ApiUrl.baseurl + '/project/' + this.state.id)
+        Axios.get('/project/' + this.state.id)
             .then(result => {
                 if (result === null) {
                     this.setState({

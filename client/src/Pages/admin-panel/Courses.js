@@ -6,7 +6,6 @@ import paginationFactory from 'react-bootstrap-table2-paginator'
 import Axios from 'axios'
 import Spinner from '../../components/admin-panel/Spinner'
 import WentWrong from '../../components/admin-panel/Wentwrong'
-import ApiEndPoint from '../../components/user-panel/ApiEndPoint'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
@@ -25,7 +24,7 @@ class Courses extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get(ApiEndPoint.baseurl + '/course/get')
+        Axios.get('/course/get')
             .then(result => {
                 if (result === null) {
                     this.setState({
@@ -47,7 +46,7 @@ class Courses extends React.Component {
     }
 
     contactDelete = () => {
-        Axios.delete(ApiEndPoint.baseurl + '/course/' + this.state.dataId)
+        Axios.delete('/course/' + this.state.dataId)
             .then(result => {
                 this.setState({
                     contactdata: this.state.contactdata.filter(el => el._id !== this.state.dataId),
@@ -94,7 +93,7 @@ class Courses extends React.Component {
         fd.append('shortdes', this.state.shortdes)
         fd.append('feature', this.state.feature)
         fd.append('image', this.state.image)
-        Axios.post(ApiEndPoint.baseurl + '/course/add', fd, {
+        Axios.post('/course/add', fd, {
             onUploadProgress: ProgressEvent => {
                 console.log('Upload Progress: ' + Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + '%')
             }

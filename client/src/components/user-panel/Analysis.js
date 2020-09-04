@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { BarChart, Bar, ResponsiveContainer, XAxis, Tooltip } from 'recharts'
-import ApiUrl from './ApiEndPoint'
 import axios from 'axios'
 import ReactHtmlParser from 'react-html-parser'
 import Spinner from './Spinner'
@@ -16,7 +15,7 @@ class Analysis extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(ApiUrl.baseurl + '/chart/get')
+        axios.get('/chart/get')
             .then(result => {
                 if (result === null) {
                     this.setState({

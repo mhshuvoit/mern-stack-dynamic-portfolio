@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import ApiUrl from './ApiEndPoint'
 import axios from 'axios'
 import ReactHtmlParser from 'react-html-parser'
 
@@ -10,7 +9,7 @@ class Refund extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(ApiUrl.baseurl + '/info/get')
+        axios.get('/info/get')
             .then(result => {
                 this.setState({ refund: result.data.response[0]['refund'] })
             })

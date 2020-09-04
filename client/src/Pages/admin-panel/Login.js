@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import jwtDecode from 'jwt-decode'
 import setAuthToken from '../../utils/setAuthToken'
-import ApiEndPoint from '../../components/user-panel/ApiEndPoint'
 
 class LoginForm extends React.Component {
     state = {
@@ -24,7 +23,7 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password,
         }
-        Axios.post(ApiEndPoint.baseurl + '/user/login', loginJson)
+        Axios.post('/user/login', loginJson)
             .then(response => {
                 let token = response.data.token
                 localStorage.setItem('auth_token', token)

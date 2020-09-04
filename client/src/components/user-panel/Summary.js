@@ -5,7 +5,6 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import CountUp from 'react-countup'
 import VisibilitySensor from 'react-visibility-sensor'
 import axios from 'axios'
-import ApiUrl from './ApiEndPoint'
 
 class Summary extends React.Component {
     state = {
@@ -13,7 +12,7 @@ class Summary extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(ApiUrl.baseurl + '/etcs/get')
+        axios.get('/etcs/get')
             .then(result => {
                 this.setState({
                     sumNumber: result.data.response[0]['sumNumber']

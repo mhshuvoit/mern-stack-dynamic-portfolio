@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import ApiUrl from './ApiEndPoint'
 import axios from 'axios'
 import Spinner from './Spinner'
 import WentWrong from './Error'
@@ -14,7 +13,7 @@ class AllCourses extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(ApiUrl.baseurl + '/course/get')
+        axios.get('/course/get')
             .then(result => {
                 if (result === null) {
                     this.setState({

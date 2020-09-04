@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios'
-import ApiUrl from './ApiEndPoint'
 
 class Footer extends React.Component {
     state = {
@@ -17,7 +16,7 @@ class Footer extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(ApiUrl.baseurl + '/etcs/get')
+        axios.get('/etcs/get')
             .then(result => {
                 this.setState({
                     facebook: result.data.response[0]['facebook'],
