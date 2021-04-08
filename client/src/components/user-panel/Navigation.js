@@ -19,7 +19,7 @@ class Navigation extends React.Component {
         if (window.scrollY > 100) {
             this.setState({
                 navBarTitle: 'navTitleScroll',
-                navBarLogo: [blueLogo],
+                navBarLogo: blueLogo,
                 navBackground: 'navBackgroundScroll',
                 navItem: 'navItemScroll',
                 variant: 'light'
@@ -27,7 +27,7 @@ class Navigation extends React.Component {
         } else if (window.scrollY < 100) {
             this.setState({
                 navBarTitle: 'navTitle',
-                navBarLogo: [whiteLogo],
+                navBarLogo: whiteLogo,
                 navBackground: 'navBackground',
                 navItem: 'navItem',
                 variant: 'dark'

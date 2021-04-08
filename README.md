@@ -40,6 +40,6 @@ npm start
 ```
 
 ```bash
-Backend will run on http://localhost:5000
 Frontend will run on http://localhost:3000
+Backend will run on http://localhost:5000
 ```

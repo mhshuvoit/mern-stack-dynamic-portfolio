@@ -17,6 +17,7 @@ class Terms extends React.Component {
                 console.log(error)
             })
     }
+    
     render() {
         return (
             <Fragment>

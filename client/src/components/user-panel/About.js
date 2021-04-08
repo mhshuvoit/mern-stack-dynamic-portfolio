@@ -24,7 +24,7 @@ class About extends React.Component {
                 <Container className='text-justify mt-5'>
                     <Row>
                         <Col>
-                        {ReactHtmlParser(this.state.about)}
+                            {ReactHtmlParser(this.state.about)}
                         </Col>
                     </Row>
                 </Container>

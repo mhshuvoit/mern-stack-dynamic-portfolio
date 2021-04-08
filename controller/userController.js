@@ -41,6 +41,7 @@ module.exports = {
                 .catch(error => serverError(res, error))
         }
     },
+    
     login(req, res) {
         let { email, password } = req.body
         let validate = loginValidator({ email: email, password: password })

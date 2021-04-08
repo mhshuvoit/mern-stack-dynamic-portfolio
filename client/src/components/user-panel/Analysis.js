@@ -51,7 +51,7 @@ class Analysis extends React.Component {
                         <Row>
                             <Col style={{ width: 100, height: 300 }} lg={6} sm={12}>
                                 <ResponsiveContainer>
-                                    <BarChart width={100} height={300} data={this.state.techdata}>
+                                    <BarChart data={this.state.techdata}>
                                         <XAxis dataKey='technology' />
                                         <Tooltip />
                                         <Bar dataKey='project' fill={blue} >

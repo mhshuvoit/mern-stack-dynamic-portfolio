@@ -13,8 +13,8 @@ module.exports = (req, res, next) => {
                 message: 'Authentication Failed'
             })
         }
-        
+
         req.user = user
         return next()
-    }) (req, res, next)
+    })(req, res, next)
 }

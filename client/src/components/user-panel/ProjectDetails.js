@@ -29,7 +29,7 @@ class ProjectDetails extends React.Component {
                     })
                 }
                 this.setState({
-                    img: result.data.response['img'],
+                    img: result.data.response['image'],
                     title: result.data.response['title'],
                     shortdes: result.data.response['shortdes'],
                     feature: result.data.response['feature'],
@@ -55,7 +55,7 @@ class ProjectDetails extends React.Component {
                     <Container className='text-justify mt-5'>
                         <Row>
                             <Col lg={6} sm={12}>
-                                <img style={{ width: '100%' }} src={this.state.img} alt='project' />
+                                <img style={{ width: '100%' }} src={'/' + this.state.img} alt='project' />
                             </Col>
                             <Col lg={6} sm={12}>
                                 <h4>{this.state.title}</h4>

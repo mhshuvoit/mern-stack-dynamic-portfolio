@@ -1,3 +1,4 @@
+const fs = require('fs');
 const Courses = require('../Model/Courses')
 
 const getAllService = (req, res) => {
@@ -21,7 +22,7 @@ const postService = (req, res) => {
         image: req.file.path,
         title: req.body.title,
         shortdes: req.body.shortdes,
-        feature: req.body.feature
+        feature: req.body.feature   
     })
     service.save()
         .then(response => {
@@ -55,19 +56,30 @@ const getSingleService = (req, res) => {
 }
 
 const deleteService = (req, res) => {
-    Courses.findByIdAndRemove(req.params.id)
-        .then(response => {
-            res.status(200).json({
-                msz: 'Courses Delete',
-                response: response
+    Courses.findOne({ _id: req.params.id })
+        .then(respons => {
+            Courses.findByIdAndRemove(respons.id)
+                .then(response => {
+                    res.status(200).json({
+                        msz: 'Courses Delete',
+                        response: response
+                    })
+                })
+                .catch(err => {
+                    res.status(500).json({
+                        msz: 'Error',
+                        err
+                    })
+                })
+            fs.unlink('./' + respons.image, function (err) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log('Delete')
+                }
             })
         })
-        .catch(err => {
-            res.status(500).json({
-                msz: 'Error',
-                err
-            })
-        })
+
 }
 
 const updateService = (req, res) => {

@@ -62,7 +62,7 @@ class Courses extends React.Component {
 
     imgCellFormatte(cell, row) {
         return (
-            <img className='w-100' src={cell} alt='img' />
+            <img className='w-50' src={'/' + cell} alt='#' />
         )
     }
 
@@ -136,16 +136,7 @@ class Courses extends React.Component {
                     this.setState({ dataId: row['_id'] })
                 }
             }
-            // console.log(<BootstrapTable
-            //     keyField='_id'
-            //     data={this.state.contactdata.map(data=> (
-            //         <div>
-            //             <img src={data.image} />
-            //         </div>
-            //     ))}
-            //     columns={columns}
-            //     pagination={paginationFactory()}
-            //     selectRow={selectRow} />)
+
             return (
                 <Navigation title="Courses">
                     <Fragment>

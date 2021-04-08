@@ -44,7 +44,7 @@ class RecentProjects extends React.Component {
                 return (
                     <Col lg={4} md={6} sm={12}>
                         <Card>
-                            <Card.Img variant="top" src={projectdata.img} />
+                            <Card.Img variant="top" src={'/' + projectdata.image} />
                             <Card.Body>
                                 <Card.Title>{projectdata.title}</Card.Title>
                                 <Card.Text>{projectdata.shortdes}</Card.Text>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
-import jwtDecode from 'jwt-decode'
 import setAuthToken from '../../utils/setAuthToken'
 
 class LoginForm extends React.Component {
@@ -28,8 +27,6 @@ class LoginForm extends React.Component {
                 let token = response.data.token
                 localStorage.setItem('auth_token', token)
                 setAuthToken(token)
-                let decode = jwtDecode(token)
-                console.log(decode)
                 window.location = "/dashboard"
             })
             .catch(error => {

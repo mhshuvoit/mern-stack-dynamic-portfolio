@@ -16,7 +16,7 @@ class TopBanner extends Component {
     componentDidMount() {
         axios.get('/etcs/get')
             .then(result => {
-                if (result === null) {
+                if (!result) {
                     this.setState({
                         spinnerClass: 'd-none',
                         mainDiv: 'd-none',

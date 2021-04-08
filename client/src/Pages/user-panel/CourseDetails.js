@@ -11,6 +11,7 @@ class CourseDetails extends React.Component {
             id: match.params.id
         }
     }
+    
     render() {
         return (
             <Fragment>

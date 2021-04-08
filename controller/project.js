@@ -1,3 +1,4 @@
+const fs = require('fs');
 const Project = require('../Model/Project')
 
 const getAllService = (req, res) => {
@@ -18,7 +19,7 @@ const getAllService = (req, res) => {
 
 const postService = (req, res) => {
     let service = new Project({
-        img: req.body.img,
+        image: req.file.path,
         title: req.body.title,
         shortdes: req.body.shortdes,
         feature: req.body.feature
@@ -55,19 +56,30 @@ const getSingleService = (req, res) => {
 }
 
 const deleteService = (req, res) => {
-    Project.findByIdAndRemove(req.params.id)
-        .then(response => {
-            res.status(200).json({
-                msz: 'Project Delete',
-                response: response
+    Project.findOne({ _id: req.params.id })
+        .then(respons => {
+            Project.findByIdAndRemove(respons.id)
+                .then(response => {
+                    res.status(200).json({
+                        msz: 'Project Delete',
+                        response: response
+                    })
+                })
+                .catch(err => {
+                    res.status(500).json({
+                        msz: 'Error',
+                        err
+                    })
+                })
+            fs.unlink('./' + respons.image, function (err) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log('Delete')
+                }
             })
         })
-        .catch(err => {
-            res.status(500).json({
-                msz: 'Error',
-                err
-            })
-        })
+
 }
 
 const updateService = (req, res) => {

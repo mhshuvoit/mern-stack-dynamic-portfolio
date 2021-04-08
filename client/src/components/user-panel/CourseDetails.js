@@ -5,7 +5,7 @@ import ReactHtmlParser from 'react-html-parser'
 import Spinner from './Spinner'
 import WentWrong from './Error'
 
-class ProjectDetails extends React.Component {
+class CourseDetails extends React.Component {
     constructor(props) {
         super()
         this.state = {
@@ -29,7 +29,7 @@ class ProjectDetails extends React.Component {
                     })
                 }
                 this.setState({
-                    img: result.data.response['img'],
+                    img: result.data.response['image'],
                     title: result.data.response['title'],
                     shortdes: result.data.response['shortdes'],
                     feature: result.data.response['feature'],
@@ -87,4 +87,4 @@ class ProjectDetails extends React.Component {
     }
 }
 
-export default ProjectDetails
+export default CourseDetails

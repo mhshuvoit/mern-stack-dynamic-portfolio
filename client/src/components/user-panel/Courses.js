@@ -40,12 +40,12 @@ class CoursesCompo extends React.Component {
         } else if (this.state.error === true && this.state.spinner === false) {
             return <WentWrong />
         } else if (this.state.spinner === false && this.state.error === false) {
-            const courseview = this.state.coursedatas.slice(0, 4).map(coursedata => {
+            const courseview = this.state.coursedatas.reverse().slice(0, 4).map(coursedata => {
                 return (
                     <Col lg={6} md={12} sm={12} className='mb-3'>
                         <Row>
                             <Col lg={6} md={6} sm={12}>
-                                <img className='courseImg' src={coursedata.img} alt='courses' />
+                                <img className='courseImg' src={'/' + coursedata.image} alt='courses' />
                             </Col>
                             <Col lg={6} md={6} sm={12}>
                                 <h5>{coursedata.title}</h5>

@@ -18,7 +18,7 @@ class Projects extends React.Component {
         error: false,
         show: false,
         title: '',
-        img: '',
+        image: '',
         shortdes: '',
         feature: ''
     }
@@ -62,7 +62,7 @@ class Projects extends React.Component {
 
     imgCellFormatte(cell, row) {
         return (
-            <img className='w-100' src={cell} alt='img' />
+            <img className='w-50' src={'/' + cell} alt='#' />
         )
     }
 
@@ -78,12 +78,8 @@ class Projects extends React.Component {
         this.setState({ title: event.target.value })
     }
 
-    // handleImgChange = (event) => {
-    //     this.setState({ img: event.target.files[0] })
-    // }
-
-    handleImgChange = (event) => {
-        this.setState({ img: event.target.value })
+    handleChangeImg = (event) => {
+        this.setState({ image: event.target.files[0] })
     }
 
     handleShortChange = (event) => {
@@ -96,24 +92,18 @@ class Projects extends React.Component {
 
     onSubmit = (event) => {
         event.preventDefault()
-        // let title = this.state.title
-        // let img = this.state.img
-        // let shortdes = this.state.shortdes
-        // let feature = this.state.feature
-        // let formData = new FormData()
-        // formData.append('title', title)
-        // formData.append('img', img)
-        // formData.append('shortdes', shortdes)
-        // formData.append('feature', feature)
+        let title = this.state.title
+        let image = this.state.image
+        let shortdes = this.state.shortdes
+        let feature = this.state.feature
+        let formData = new FormData()
+        formData.append('title', title)
+        formData.append('image', image)
+        formData.append('shortdes', shortdes)
+        formData.append('feature', feature)
         // let config = { headers: { 'content-type': 'multipart/form-data' } }
 
-        let jsonservice = {
-            title: this.state.title,
-            img: this.state.img,
-            shortdes: this.state.shortdes,
-            feature: this.state.feature
-        }
-        Axios.post('/project/add', jsonservice)
+        Axios.post('/project/add', formData)
             .then(result => {
                 this.componentDidMount()
             })
@@ -123,7 +113,7 @@ class Projects extends React.Component {
         event.target.reset()
         this.setState({
             title: '',
-            img: '',
+            image: '',
             shortdes: '',
             feature: ''
         })
@@ -141,7 +131,7 @@ class Projects extends React.Component {
             return <WentWrong />
         } else {
             const columns = [
-                { dataField: 'img', text: 'Image', formatter: this.imgCellFormatte },
+                { dataField: 'image', text: 'Image', formatter: this.imgCellFormatte },
                 { dataField: 'title', text: 'Title' },
                 { dataField: 'shortdes', text: 'Description' },
                 { dataField: 'feature', text: 'Feature' }
@@ -152,6 +142,7 @@ class Projects extends React.Component {
                     this.setState({ dataId: row['_id'] })
                 }
             }
+
             return (
                 <Navigation title="Projects">
                     <Fragment>
@@ -187,10 +178,12 @@ class Projects extends React.Component {
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Image</Form.Label>
-                                    <Form.Control type="text"
-                                        onChange={this.handleImgChange}
-                                        name="img"
-                                        value={this.state.img} />
+                                    <Form.Control
+                                        style={{ display: 'none' }}
+                                        type="file"
+                                        onChange={this.handleChangeImg}
+                                        ref={fileInput => this.fileInput = fileInput} />
+                                    <p className="pStyle" onClick={() => this.fileInput.click()}>Pick File</p>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Description</Form.Label>

@@ -45,7 +45,7 @@ class AllCourses extends React.Component {
                     <Col lg={6} md={12} sm={12} className='mb-3'>
                         <Row>
                             <Col lg={6} md={6} sm={12}>
-                                <img className='courseImg' src={coursedata.img} alt='courses' />
+                                <img className='courseImg' src={'/' + coursedata.image} alt='courses' />
                             </Col>
                             <Col lg={6} md={6} sm={12}>
                                 <h5>{coursedata.title}</h5>
